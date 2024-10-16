@@ -1,1 +1,58 @@
+<center>
+<script type="text/javascript">
+    function doencrypt(theform) { 
+     if (theform.code.value == "") { 
+      alert("NO CODES FOR ENCRYPTION!"); 
+      return false; 
+     } else { 
+      dultext=encrypt(theform.code.value); 
+      codetocopy="<script type='text/javascript'>\n"; 
+      codetocopy+="//<![CDATA[\n//By : www.detikaceh.my.id\n" ;  
+      codetocopy+="document.write(unescape('"+enctext+"'));\n"; 
+      codetocopy+="//]]>\n"; 
+      codetocopy+="</script\>";        theform.ecode.value=codetocopy;       }       return false;      }       function encrypt(tx) {      var codehex='';      var i;      for (i=0; i<tx.length; i++) {
+      codehex += '%'+hexfromdec(tx.charCodeAt(i))
+     }
+     return codehex;
+    }
 
+    function hexfromdec(num) { 
+     hex1 = Math.round(num/16 - .5); 
+     hex2 = num - hex1 * 16; 
+     return (""+getletter(hex1)+getletter(hex2)); 
+    } 
+
+    function getletter(num) { 
+     if (num < 10) { 
+      return num; 
+     } 
+     else { 
+      if (num == 10) { return "A" } 
+      if (num == 11) { return "B" } 
+      if (num == 12) { return "C" } 
+      if (num == 13) { return "D" } 
+      if (num == 14) { return "E" } 
+      if (num == 15) { return "F" } 
+     } 
+    }
+function code_check(){
+    var focuscheck=document.getElementById('txtarea');if(focuscheck.value.indexOf('Paste your code here...')>0)focuscheck.value='';}  function copyToClipboard() {     $("#txtarea").select();   document.execCommand("copy");  }      </script>      <div class="ribbon">
+<h1 class="ribbon-tampilan">
+<strong class="ribbon-nama">Encrypt Code</strong> </h1>
+<div id="belakang">
+
+<div class="hasil">
+<span style="font-size: large;"><b> INPUT :</b></span>         </div>
+<form method="post" name="pageform" onsubmit="return doencrypt(this);">
+<textarea cols="30" id="areatxt" name="code" placeholder="Paste your HTML, JS, CSS, PHP, C+ code here..." rows="20"></textarea>      
+<div class="hasil">
+<span style="font-size: large;"><b> RESULT :</b></span>     </div>
+<textarea cols="30" id="txtarea" name="ecode" readonly="yes" rows="20"></textarea>             
+<div class="daerah-tombol-2">
+<input id="button-on" onclick="doencrypt(pageform);" type="button" value="ENCRYPT CODE" /> <input id="button-on" type="reset" value="RESET" /> <button id="txtarea" onclick="copyToClipboard();">COPY TO CLIPBOARD</button>             </div>
+</form>
+<div style="clear: both;">
+</div>
+</div>
+</div>
+</center>
