@@ -20,6 +20,7 @@ var dulsport = {
   "mute": false,
   "ph": 1,
   "pid": "dulSport",
+   "provider": "dulSport",
   "playbackRateControls": false,
   "preload": "metadata",
   "repeat": false,
