@@ -22,6 +22,8 @@ var dulsport = {
   "pid": "dulSport",
    "provider": "dulSport",
   "playbackRateControls": false,
+   "setPip": false,
+  "enableShortcuts": false,
   "preload": "metadata",
   "repeat": false,
   "stretching": "uniform",
